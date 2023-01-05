@@ -43,7 +43,6 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ClipView.vue"),
   },
-
   {
     path: "/podcast",
     name: "podcast",

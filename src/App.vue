@@ -9,6 +9,7 @@
   </nav>
   <router-view />
 </template>
+<!--
 
 <style>
 #app {
@@ -32,3 +33,4 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+-->

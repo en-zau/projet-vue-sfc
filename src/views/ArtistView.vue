@@ -50,6 +50,7 @@
               item.primaryGenreName
             }}</a>
           </p>
+
           <small></small>
         </div>
       </div>
@@ -69,7 +70,7 @@ export default {
   },
   methods: {
     fetchDataPromise: function (search = "") {
-      console.log(apiUrl + search);
+      // console.log(apiUrl + search)
       axios
         .get(apiUrl + search)
         .then(async (response) => {
