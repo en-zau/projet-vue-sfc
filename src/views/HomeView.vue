@@ -66,6 +66,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 const apiUrl =
   "https://itunes.apple.com/search?country=FR&media=music&entity=musicTrack&attribute=songTerm&limit=30&term=";
 export default {
@@ -77,43 +78,66 @@ export default {
   },
   methods: {
     fetchDataPromise: function (search = "") {
-      const self = this;
       // console.log(apiUrl + search)
-      this.axios
+      axios
         .get(apiUrl + search)
-        .then(function (response) {
+        .then(async (response) => {
           console.log(response.data.results);
-          self.array = response.data.results;
-          // console.log(self.commits[0].html_url);
+          this.array = await response.data.results;
         })
         .catch(function (error) {
           console.log(error);
         });
     },
     MySearchQuery: function () {
-      let array = this.array,
-        searchString = this.searchString;
-
+      let array = this.array;
+      let searchString = this.searchString;
       if (!searchString) {
         return array;
       }
-
       searchString = searchString.trim().toLowerCase().replaceAll(" ", "+");
       console.log(searchString);
       this.fetchDataPromise(searchString);
-
-      // array = array.filter(function (item) {
-      //     if (
-      //         item.title
-      //             .toLowerCase()
-      //             .startsWith(searchString) === true
-      //     ) {
-      //         return item;
-      //     }
-      // });
       return array;
     },
   },
   computed: {},
 };
 </script>
+
+<style>
+[v-cloak] {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #5e5b64;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+section,
+footer,
+header,
+aside,
+nav {
+  display: block;
+}
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.bar {
+  width: 30rem;
+}
+</style>
