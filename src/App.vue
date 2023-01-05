@@ -1,7 +1,10 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/music">Music</router-link> |
+    <router-link to="/album">Album</router-link> |
+    <router-link to="/artist">Artist</router-link> |
+    <router-link to="/clip">Clip</router-link>
   </nav>
   <router-view />
 </template>
