@@ -1,5 +1,6 @@
 # projet-vue-sfc
-
+api : https://itunes.apple.com/search? <br>
+docs-api : https://performance-partners.apple.com/search-api
 ## Project setup
 ```
 npm install
