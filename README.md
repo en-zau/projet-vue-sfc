@@ -1,4 +1,4 @@
-# projet-vue-sfc *On viens de repush
+# projet-vue-sfc 
 
 ## Project setup
 ```
