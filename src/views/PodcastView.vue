@@ -13,7 +13,7 @@
             aria-describedby="inputGroup-sizing-default"
             v-model="searchString"
             @change="MySearchQuery()"
-            placeholder="Enter a music name ..."
+            placeholder="Enter a artist name ..."
           />
         </div>
         <input
@@ -36,14 +36,6 @@
                   item.trackName
                 }}</a>
               </h5>
-              <small
-                ><span
-                  class="badge bg-dark"
-                  style="font-weight: lighter"
-                  v-if="item.collectionExplicitness === 'explicit'"
-                  >Explicit</span
-                ></small
-              >
             </div>
           </div>
           <p>
@@ -52,13 +44,18 @@
               item.artistName
             }}</a>
           </p>
-          <a
-            class="btn btn-outline-danger"
-            :href="item.trackViewUrl"
-            target="_blank"
-            ><i class="fa-solid fa-cart-shopping"></i> for
-            {{ item.trackPrice }}€</a
-          >
+          <p>
+            Style :
+            <a :href="item.artistViewUrl" target="_blank">{{
+              item.primaryGenreName
+            }}</a>
+          </p>
+          <p>
+            Date :
+            <a :href="item.artistViewUrl" target="_blank">{{
+              item.releaseDate
+            }}</a>
+          </p>
           <small></small>
         </div>
       </div>
@@ -68,7 +65,7 @@
 <script>
 import axios from "axios";
 const apiUrl =
-  "https://itunes.apple.com/search?country=FR&media=music&entity=musicTrack&attribute=songTerm&limit=30&term=";
+  "https://itunes.apple.com/search?country=FR&media=podcast&entity=podcast&attribute=genreIndex&limit=30&term=";
 export default {
   data() {
     return {
@@ -78,7 +75,7 @@ export default {
   },
   methods: {
     fetchDataPromise: function (search = "") {
-      // console.log(apiUrl + search)
+      console.log(apiUrl + search);
       axios
         .get(apiUrl + search)
         .then(async (response) => {
