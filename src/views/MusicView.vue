@@ -3,6 +3,7 @@
     <div id="main">
       <SearchBar
         searchUrl="https://itunes.apple.com/search?country=FR&media=music&entity=musicTrack&attribute=songTerm&limit=30&term="
+        title="Music"
         v-on:data_emit="array = $event"
       ></SearchBar>
       <div class="list-group" v-for="item in array" v-bind:key="item">
@@ -49,6 +50,7 @@
 </template>
 <script>
 import SearchBar from "@/components/SearchBar.vue";
+
 export default {
   components: {
     SearchBar,

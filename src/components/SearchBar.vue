@@ -1,6 +1,6 @@
 <template>
   <div class="form">
-    <h1 class="mb-3"><i class="fa-brands fa-apple"></i> Search</h1>
+    <h1 class="mb-3"><i class="fa-brands fa-apple"></i>Search {{ title }}</h1>
     <div class="bar">
       <input
         type="search"
@@ -9,7 +9,7 @@
         aria-describedby="inputGroup-sizing-default"
         v-model="searchString"
         @change="MySearchQuery()"
-        placeholder="Enter a music name ..."
+        placeholder="Please type your query ..."
       />
     </div>
     <input
@@ -26,7 +26,7 @@ import axios from "axios";
 // const apiUrl =
 //   "https://itunes.apple.com/search?country=FR&media=music&entity=musicTrack&attribute=songTerm&limit=30&term=";
 export default {
-  props: ["searchUrl"],
+  props: ["searchUrl", "title"],
   data() {
     return {
       searchString: "",
