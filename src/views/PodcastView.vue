@@ -50,7 +50,12 @@
               item.primaryGenreName
             }}</a>
           </p>
-
+          <p>
+            Date :
+            <a :href="item.artistViewUrl" target="_blank">{{
+              item.releaseDate
+            }}</a>
+          </p>
           <small></small>
         </div>
       </div>
@@ -60,7 +65,7 @@
 <script>
 import axios from "axios";
 const apiUrl =
-  "https://itunes.apple.com/search?country=FR&entity=allArtist&attribute=allArtistTerm&limit=30&term=";
+  "https://itunes.apple.com/search?country=FR&media=podcast&entity=podcast&attribute=genreIndex&limit=30&term=";
 export default {
   data() {
     return {
@@ -70,7 +75,7 @@ export default {
   },
   methods: {
     fetchDataPromise: function (search = "") {
-      // console.log(apiUrl + search)
+      console.log(apiUrl + search);
       axios
         .get(apiUrl + search)
         .then(async (response) => {
